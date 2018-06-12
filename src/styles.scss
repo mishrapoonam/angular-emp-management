@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background: #f5f5f5;
+}
+
+a.active{
+  background:#c5dcdc !important;
+  font-weight: bold; 
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    background:#b1e4e4; 
+    font-weight: bold;  
+}
+
+.jumbotron p{
+    padding: 0px;
+    font-size: 14px;
+    font-weight: normal
+}

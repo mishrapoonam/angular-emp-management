@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-sm-7  custom-row jumbotron">
+
+    <form class="form-horizontal" [formGroup]="addForm" (ngSubmit)="onFormSubmit()" autocomplete="off">
+
+      <fieldset>
+        <legend>Add Employee</legend>
+        <!-- First Name  block -->
+        <div class="form-group">
+          <label for="name" class="col-lg-3
+                        control-label">First Name</label>
+
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="First Name">
+          </div>
+          <!-- First Name error block -->
+          <div class="col-lg-3" *ngIf="addForm.controls.name.invalid && (addForm.controls.name.dirty || addForm.controls.name.touched)">
+            <p class="text-danger" *ngIf="addForm.controls.name.errors.required">
+              First Name is required.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Phone number block -->
+        <div class="form-group">
+          <label for="phone" class="col-lg-3
+                        control-label">Phone</label>
+
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Phone number">
+          </div>
+
+          <!-- Phone error block -->
+          <div class="col-lg-3" *ngIf="addForm.controls.phone.invalid && (addForm.controls.phone.dirty || addForm.controls.phone.touched)">
+            <p class="text-danger" *ngIf="addForm.controls.phone.errors.pattern">
+              Enter Only Numbers
+            </p>
+            <p class="text-danger" *ngIf="addForm.controls.phone.errors.maxlength">
+              Max 10 digit is allowed
+            </p>
+
+          </div>
+
+        </div>
+
+        <!--- Email Block -->
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-3
+                    control-label">Email</label>
+
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="inputEmail" formControlName="email" placeholder="Email">
+          </div>
+
+          <!-- Email error block -->
+
+          <div class="col-lg-3" *ngIf="addForm.controls.email.invalid && (addForm.controls.email.dirty || addForm.controls.email.touched)">
+            <p class="text-danger" *ngIf="addForm.controls.email.errors.pattern">
+              Enter valid email id
+            </p>
+            <p class="text-danger" *ngIf="addForm.controls.email.errors.required">
+              Email id is required
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- Role Block -->
+        <div class="form-group">
+          <label for="select" class="col-lg-3 control-label">Job Role</label>
+          <div class="col-lg-5">
+            <select id="select" class="form-control" formControlName="jobrole">
+
+              <option *ngFor="let role of roleList" [value]="role"> {{role}}
+              </option>
+            </select>
+          </div>
+
+          <!-- Role error block -->
+          <div class="col-lg-3" *ngIf="addForm.controls.jobrole.invalid && (addForm.controls.jobrole.dirty || addForm.controls.jobrole.touched)">
+            <p class="text-danger" *ngIf="addForm.controls.jobrole.errors.required">
+              Gender is required
+            </p>
+          </div>
+        </div>
+
+        <!--- Terms and conditions Block -->
+        <div class="form-group checkbox">
+          <div class="col-lg-6 col-lg-offset-2">
+            <input type="checkbox" formControlName="terms"> Confirm that you've read the Terms and Conditions
+          </div>
+
+          <!--- Terms error block -->
+
+          <div class="col-lg-4" *ngIf="addForm.controls.terms.invalid && (addForm.controls.terms.dirty || addForm.controls.terms.touched)">
+            <p class="text-danger" *ngIf="addForm.controls.terms.errors.required">
+              Please accept the Terms and conditions first
+            </p>
+          </div>
+
+        </div>
+
+
+        <!--- Buttons Block -->
+        <div class="form-group">
+          <div class="col-lg-10 text-center">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" [disabled]="!addForm.valid" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <!--- Log the FormGroup values to see if the binding is working -->
+
+    <p>Form value: {{ addForm.value | json }}</p>
+  </div>
+</div>

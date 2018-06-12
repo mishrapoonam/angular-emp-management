@@ -1,0 +1,24 @@
+
+<!-- this is the new syntax for ng-repeat -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Emp Id</th>
+      <th>First Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Job Role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of emps;let i = index">
+      <td> <a [routerLink] = "['/employeedetails',i+1]"> {{i+1}} </a></td>
+      <td>{{emp.name}} </td>
+      <td>{{emp.email}} </td>
+      <td>{{emp.phone}} </td>
+      <td>{{emp.jobrole}} </td>
+      <td><a (click)="onDelete(emp)" class="confirm-delete btn mini red-stripe" role="button" data-title="kitty" data-id="2">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

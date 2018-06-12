@@ -1,0 +1,11 @@
+<section *ngIf="emp">
+  <h2>You selected:  {{emp.name}}</h2>
+  <h3>Description</h3>
+  <p> Employee Id {{emp.id}} </p>
+  <p>Employee Phone Number {{emp.phone}} </p>
+  <p>Employee Job Role {{emp.jobrole}} </p>
+  
+</section>
+
+<button (click)="gotoEmpList()">Back to employee list</button>
+
